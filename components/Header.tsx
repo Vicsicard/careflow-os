@@ -16,10 +16,9 @@ export default function Header() {
             <Image 
               src="/careflowos-logo.png" 
               alt="CAREFLOW OS Logo" 
-              width={270} 
-              height={60}
-              style={{ height: 'auto', width: 'auto', maxHeight: '48px' }}
-              className="max-h-12 sm:max-h-[60px]"
+              width={468}
+              height={129}
+              style={{ height: 'auto', width: 'auto', maxHeight: '80px' }}
               priority
             />
           </Link>
