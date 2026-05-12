@@ -38,13 +38,13 @@ const features = [
 
 export default function FeatureGrid() {
   return (
-    <section id="features" className="py-20 sm:py-28 lg:py-36 bg-white">
+    <section id="features" className="bg-white" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-28 sm:mb-32"
         >
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             Everything Needed to Coordinate Caregivers More Efficiently
@@ -54,7 +54,7 @@ export default function FeatureGrid() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (

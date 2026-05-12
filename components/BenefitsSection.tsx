@@ -13,13 +13,13 @@ const benefits = [
 
 export default function BenefitsSection() {
   return (
-    <section id="benefits" className="py-20 sm:py-28 lg:py-36 gradient-soft">
+    <section id="benefits" className="gradient-soft" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-28 sm:mb-32"
         >
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             Built to Reduce Daily Staffing Stress
@@ -29,7 +29,7 @@ export default function BenefitsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-16">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}

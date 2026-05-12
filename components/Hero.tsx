@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, MessageSquare } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="pt-48 pb-40 sm:pt-64 sm:pb-56 lg:pt-72 lg:pb-64 gradient-soft relative overflow-hidden">
+    <section className="gradient-soft relative overflow-hidden px-4 sm:px-6" style={{ paddingTop: '80px', paddingBottom: '64px' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-teal-200/20 rounded-full blur-3xl"></div>
@@ -18,13 +18,13 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-8">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 lg:mb-12">
               Stop Managing Caregiver Staffing Through Chaos
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 mb-12 leading-relaxed max-w-xl">
+            <p className="text-xl sm:text-2xl text-gray-600 mb-14 sm:mb-16 leading-relaxed max-w-xl">
               CAREFLOW OS brings calm and organization to your daily staffing operations. Reduce no-shows, streamline scheduling, and manage open shifts without endless texting or spreadsheets.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 mb-12">
+            <div className="flex flex-col sm:flex-row gap-6 mb-16 sm:mb-20">
               <button className="btn-primary flex items-center justify-center gap-3 text-lg">
                 Book a Demo
                 <ArrowRight size={24} />

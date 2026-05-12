@@ -14,18 +14,18 @@ const painPoints = [
 
 export default function TrustBar() {
   return (
-    <section className="py-24 sm:py-32 bg-gradient-to-b from-white to-gray-50 border-b border-gray-200/50">
+    <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200/50" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
       <div className="container-custom">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="text-center text-gray-700 mb-16 text-xl font-medium max-w-3xl mx-auto"
+          className="text-center text-gray-700 mb-20 sm:mb-24 text-xl font-medium max-w-3xl mx-auto"
         >
           Built for staffing coordinators managing real-world caregiver scheduling challenges every day.
         </motion.p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-10">
           {painPoints.map((point, index) => {
             const Icon = point.icon;
             return (

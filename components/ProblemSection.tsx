@@ -5,18 +5,18 @@ import { FileText, MessageCircle, Phone, AlertTriangle } from 'lucide-react';
 
 export default function ProblemSection() {
   return (
-    <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white">
+    <section className="bg-gradient-to-b from-gray-50 to-white" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl sm:text-6xl font-bold text-gray-900 mb-24 text-center leading-tight"
+          className="text-5xl sm:text-6xl font-bold text-gray-900 mb-28 sm:mb-32 text-center leading-tight"
         >
-          Staffing Coordination Shouldn't Feel Like Crisis Management
+          Staffing Coordination Shouldn&apos;t Feel Like Crisis Management
         </motion.h2>
 
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-24 lg:gap-32 items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

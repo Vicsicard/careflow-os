@@ -28,13 +28,13 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-white to-gray-50">
+    <section id="how-it-works" className="bg-gradient-to-b from-white to-gray-50" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-28 sm:mb-32"
         >
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             Simple Enough for Daily Operations
@@ -44,7 +44,7 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {steps.map((step, index) => (
             <motion.div
               key={index}

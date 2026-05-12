@@ -5,13 +5,13 @@ import { CheckCircle, AlertCircle, Clock, Users } from 'lucide-react';
 
 export default function DashboardPreview() {
   return (
-    <section className="py-20 sm:py-28 lg:py-36 bg-white">
+    <section className="bg-white" style={{ paddingTop: '112px', paddingBottom: '112px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-32 sm:mb-36"
         >
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             A Clearer View of Daily Staffing Operations
@@ -25,9 +25,9 @@ export default function DashboardPreview() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-12 border border-gray-200/50 shadow-2xl overflow-hidden"
+          className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-16 lg:p-20 border border-gray-200/50 shadow-2xl overflow-hidden max-w-7xl mx-auto"
         >
-          <div className="grid lg:grid-cols-3 gap-10 lg:gap-12 mb-12">
+          <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 mb-16">
             <div className="bg-white rounded-2xl p-8 border border-gray-200/50 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-gray-900 text-lg">Active Shifts</h3>
