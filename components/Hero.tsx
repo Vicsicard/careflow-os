@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, MessageSquare } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="pt-40 pb-32 sm:pt-56 sm:pb-48 gradient-soft relative overflow-hidden">
+    <section className="pt-48 pb-40 sm:pt-64 sm:pb-56 lg:pt-72 lg:pb-64 gradient-soft relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-teal-200/20 rounded-full blur-3xl"></div>

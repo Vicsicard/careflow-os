@@ -5,7 +5,7 @@ import { CheckCircle, AlertCircle, Clock, Users } from 'lucide-react';
 
 export default function DashboardPreview() {
   return (
-    <section className="section-padding bg-white">
+    <section className="py-20 sm:py-28 lg:py-36 bg-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ export default function DashboardPreview() {
           transition={{ duration: 0.6 }}
           className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-12 border border-gray-200/50 shadow-2xl overflow-hidden"
         >
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid lg:grid-cols-3 gap-10 lg:gap-12 mb-12">
             <div className="bg-white rounded-2xl p-8 border border-gray-200/50 shadow-lg">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-gray-900 text-lg">Active Shifts</h3>

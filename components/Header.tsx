@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 w-full bg-white/98 backdrop-blur-md z-50 border-b border-gray-200/50">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24 px-2">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">CF</span>

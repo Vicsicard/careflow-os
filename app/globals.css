@@ -53,6 +53,10 @@ body {
   }
 
   .section-padding {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+
+  .section-padding-lg {
     @apply py-24 sm:py-32 lg:py-40;
   }
 

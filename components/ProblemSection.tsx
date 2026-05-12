@@ -5,7 +5,7 @@ import { FileText, MessageCircle, Phone, AlertTriangle } from 'lucide-react';
 
 export default function ProblemSection() {
   return (
-    <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 sm:py-28 lg:py-36 bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

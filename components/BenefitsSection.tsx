@@ -13,7 +13,7 @@ const benefits = [
 
 export default function BenefitsSection() {
   return (
-    <section id="benefits" className="section-padding gradient-soft">
+    <section id="benefits" className="py-20 sm:py-28 lg:py-36 gradient-soft">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export default function BenefitsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}

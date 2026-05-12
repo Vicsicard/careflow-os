@@ -38,7 +38,7 @@ const features = [
 
 export default function FeatureGrid() {
   return (
-    <section id="features" className="section-padding bg-white">
+    <section id="features" className="py-20 sm:py-28 lg:py-36 bg-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function FeatureGrid() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (

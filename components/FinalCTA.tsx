@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section className="section-padding bg-gradient-to-r from-blue-600 via-blue-600 to-teal-600 relative overflow-hidden">
+    <section className="py-24 sm:py-32 lg:py-40 bg-gradient-to-r from-blue-600 via-blue-600 to-teal-600 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
