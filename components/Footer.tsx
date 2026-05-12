@@ -4,54 +4,54 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-gray-950 text-gray-300 py-20">
       <div className="container-custom">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">CF</span>
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold text-lg">CF</span>
               </div>
-              <span className="font-semibold text-white">CAREFLOW OS</span>
+              <span className="font-bold text-white text-lg">CAREFLOW OS</span>
             </Link>
-            <p className="text-sm text-gray-400">
-              Staffing coordination made simple.
+            <p className="text-base text-gray-400 leading-relaxed">
+              Staffing coordination made simple, organized, and calm.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Product</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-              <li><a href="#benefits" className="hover:text-white transition-colors">Benefits</a></li>
+            <h4 className="font-bold text-white mb-6 text-lg">Product</h4>
+            <ul className="space-y-3 text-base">
+              <li><a href="#features" className="text-gray-400 hover:text-white transition-colors font-medium">Features</a></li>
+              <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors font-medium">How It Works</a></li>
+              <li><a href="#benefits" className="text-gray-400 hover:text-white transition-colors font-medium">Benefits</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+            <h4 className="font-bold text-white mb-6 text-lg">Company</h4>
+            <ul className="space-y-3 text-base">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">About</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">Blog</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">Contact</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
+            <h4 className="font-bold text-white mb-6 text-lg">Legal</h4>
+            <ul className="space-y-3 text-base">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">Privacy</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors font-medium">Terms</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-gray-400">
+        <div className="border-t border-gray-800 pt-12">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-base text-gray-400">
               &copy; 2025 CAREFLOW OS. All rights reserved.
             </p>
-            <button className="btn-primary text-sm">
+            <button className="btn-primary text-base">
               Schedule a Demo
             </button>
           </div>

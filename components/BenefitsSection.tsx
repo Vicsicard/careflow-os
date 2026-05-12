@@ -19,29 +19,29 @@ export default function BenefitsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             Built to Reduce Daily Staffing Stress
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Experience the relief of organized, efficient caregiver coordination.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Experience the relief of organized, efficient caregiver coordination that brings calm to your operations.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col items-center text-center"
+              className="bg-white rounded-2xl p-10 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 flex flex-col items-center text-center group"
             >
-              <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mb-4">
-                <CheckCircle size={28} className="text-teal-600" />
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-100 to-teal-50 rounded-full flex items-center justify-center mb-6 group-hover:from-teal-200 group-hover:to-teal-100 transition-colors duration-300">
+                <CheckCircle size={32} className="text-teal-600" />
               </div>
-              <p className="text-lg font-semibold text-gray-900">
+              <p className="text-lg font-bold text-gray-900">
                 {benefit}
               </p>
             </motion.div>
