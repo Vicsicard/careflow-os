@@ -8,10 +8,12 @@ CREATE TABLE IF NOT EXISTS demo_requests (
   phone TEXT NOT NULL,
   caregiver_count TEXT,
   staffing_challenges TEXT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  INDEX idx_email (email),
-  INDEX idx_created_at (created_at)
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Create indexes separately for D1 compatibility
+CREATE INDEX IF NOT EXISTS idx_email ON demo_requests (email);
+CREATE INDEX IF NOT EXISTS idx_created_at ON demo_requests (created_at);
 
 -- Optional: Create a table for tracking email delivery status
 CREATE TABLE IF NOT EXISTS email_notifications (
@@ -21,7 +23,9 @@ CREATE TABLE IF NOT EXISTS email_notifications (
   status TEXT NOT NULL, -- 'sent', 'failed', 'pending'
   error_message TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (demo_request_id) REFERENCES demo_requests (id),
-  INDEX idx_demo_request_id (demo_request_id),
-  INDEX idx_status (status)
+  FOREIGN KEY (demo_request_id) REFERENCES demo_requests (id)
 );
+
+-- Create indexes for email_notifications table
+CREATE INDEX IF NOT EXISTS idx_demo_request_id ON email_notifications (demo_request_id);
+CREATE INDEX IF NOT EXISTS idx_status ON email_notifications (status);

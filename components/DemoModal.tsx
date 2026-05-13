@@ -83,7 +83,7 @@ export default function DemoModal() {
     setError('');
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://api.careflowos.com'}/demo-request`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://careflow-os-demo-api.vic-76c.workers.dev'}/demo-request`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
