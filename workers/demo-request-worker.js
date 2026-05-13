@@ -15,6 +15,8 @@ export default {
 
     try {
       const body = await request.json();
+      console.log('=== DEMO REQUEST RECEIVED ===');
+      console.log('Request body:', JSON.stringify(body, null, 2));
       
       // Validate required fields
       const { full_name, email, phone, caregiver_count, staffing_challenges } = body;
@@ -143,10 +145,13 @@ async function storeDemoRequest(db, data) {
 
 async function sendNotificationEmail(env, data) {
   try {
+    console.log('\n=== SENDGRID EMAIL PIPELINE START ===');
     console.log('Preparing SendGrid email...');
     
     // Parse recipients from comma-separated string
     const recipientString = env.NOTIFICATION_EMAIL || 'vic@getdigdev.com,vicsicard@gmail.com';
+    console.log('Raw recipient string:', recipientString);
+    
     const recipients = recipientString
       .split(',')
       .map(email => email.trim())
@@ -154,16 +159,23 @@ async function sendNotificationEmail(env, data) {
     
     const fromEmail = env.SENDGRID_FROM_EMAIL || 'noreply@careflowos.com';
     
-    console.log('Recipients:', recipients);
-    console.log('From:', fromEmail);
+    console.log('Parsed recipients array:', JSON.stringify(recipients));
+    console.log('From email:', fromEmail);
     console.log('SendGrid API Key present:', !!env.SENDGRID_API_KEY);
+    console.log('SendGrid API Key length:', env.SENDGRID_API_KEY ? env.SENDGRID_API_KEY.length : 0);
     
     if (!env.SENDGRID_API_KEY) {
-      console.error('SendGrid API key is missing!');
+      console.error('❌ CRITICAL: SendGrid API key is missing!');
+      return false;
+    }
+    
+    if (env.SENDGRID_API_KEY === 'your_sendgrid_api_key_here') {
+      console.error('❌ CRITICAL: SendGrid API key is still placeholder value!');
       return false;
     }
     
     const emailHtml = generateEmailHtml(data);
+    console.log('Email HTML generated, length:', emailHtml.length);
     
     const requestBody = {
       personalizations: [{
@@ -180,8 +192,11 @@ async function sendNotificationEmail(env, data) {
       }],
     };
     
-    console.log('SendGrid request body:', JSON.stringify(requestBody, null, 2));
+    console.log('\n=== SENDGRID REQUEST PAYLOAD ===');
+    console.log(JSON.stringify(requestBody, null, 2));
+    console.log('\n=== SENDING TO SENDGRID API ===');
     
+    const startTime = Date.now();
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
       headers: {
@@ -190,23 +205,36 @@ async function sendNotificationEmail(env, data) {
       },
       body: JSON.stringify(requestBody),
     });
+    const endTime = Date.now();
     
-    console.log('SendGrid response status:', response.status);
+    console.log('\n=== SENDGRID RESPONSE ===');
+    console.log('Response status:', response.status);
+    console.log('Response status text:', response.statusText);
+    console.log('Request duration:', endTime - startTime, 'ms');
+    console.log('Response headers:', JSON.stringify(Object.fromEntries(response.headers)));
     
     const responseText = await response.text();
-    console.log('SendGrid response body:', responseText);
+    console.log('Response body:', responseText || '(empty)');
     
     if (!response.ok) {
-      console.error('SendGrid email failed with status:', response.status);
-      console.error('SendGrid error details:', responseText);
+      console.error('\n❌ SENDGRID REQUEST FAILED');
+      console.error('Status:', response.status);
+      console.error('Status text:', response.statusText);
+      console.error('Error details:', responseText);
+      console.error('Recipients attempted:', JSON.stringify(recipients));
+      console.error('From email:', fromEmail);
       return false;
     }
     
-    console.log('SendGrid email sent successfully!');
+    console.log('\n✅ SENDGRID EMAIL SENT SUCCESSFULLY!');
+    console.log('Recipients:', JSON.stringify(recipients));
+    console.log('=== SENDGRID EMAIL PIPELINE END ===\n');
     return true;
   } catch (error) {
-    console.error('SendGrid email failure:', error);
+    console.error('\n❌ SENDGRID PIPELINE EXCEPTION');
+    console.error('Error message:', error.message);
     console.error('Error stack:', error.stack);
+    console.error('Error type:', error.constructor.name);
     // Don't throw error - email failure shouldn't break the demo request
     return false;
   }
