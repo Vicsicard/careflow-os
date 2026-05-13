@@ -135,8 +135,10 @@ async function storeDemoRequest(db, data) {
 
 async function sendNotificationEmail(env, data) {
   try {
+    const primaryEmail = env.NOTIFICATION_EMAIL || 'vic@getdigdev.com';
+    const secondaryEmail = 'vicsicard@gmail.com';
+    
     const emailContent = {
-      to: env.NOTIFICATION_EMAIL || 'vic@getdigdev.com',
       from: env.SENDGRID_FROM_EMAIL || 'noreply@careflowos.com',
       subject: 'New CAREFLOW OS Demo Request',
       html: generateEmailHtml(data)
@@ -150,7 +152,10 @@ async function sendNotificationEmail(env, data) {
       },
       body: JSON.stringify({
         personalizations: [{
-          to: [{ email: emailContent.to }],
+          to: [
+            { email: primaryEmail },
+            { email: secondaryEmail }
+          ],
           subject: emailContent.subject,
         }],
         from: { email: emailContent.from },
