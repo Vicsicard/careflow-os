@@ -157,10 +157,11 @@ async function sendNotificationEmail(env, data) {
       .map(email => email.trim())
       .filter(email => email.length > 0);
     
-    const fromEmail = env.SENDGRID_FROM_EMAIL || 'noreply@careflowos.com';
+    const fromEmail = env.SENDGRID_FROM_EMAIL || 'vic@getdigdev.com';
     
     console.log('Parsed recipients array:', JSON.stringify(recipients));
     console.log('From email:', fromEmail);
+    console.log('Note: Using verified sender email to avoid SendGrid rejection');
     console.log('SendGrid API Key present:', !!env.SENDGRID_API_KEY);
     console.log('SendGrid API Key length:', env.SENDGRID_API_KEY ? env.SENDGRID_API_KEY.length : 0);
     
