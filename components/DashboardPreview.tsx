@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function DashboardPreview() {
   return (
-    <section className="bg-white" style={{ paddingTop: '112px', paddingBottom: '112px' }}>
+    <section className="bg-white" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

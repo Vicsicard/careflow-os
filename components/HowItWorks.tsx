@@ -28,7 +28,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-gradient-to-b from-white to-gray-50" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+    <section id="how-it-works" className="bg-gradient-to-b from-white to-gray-50" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

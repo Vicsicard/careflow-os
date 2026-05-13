@@ -5,7 +5,7 @@ import { Quote } from 'lucide-react';
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50" style={{ paddingTop: '112px', paddingBottom: '112px' }}>
+    <section className="bg-gradient-to-b from-white to-blue-50" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

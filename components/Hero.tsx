@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="gradient-soft relative overflow-hidden" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+    <section className="gradient-soft relative overflow-hidden" style={{ paddingTop: '80px', paddingBottom: '120px' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-teal-200/20 rounded-full blur-3xl"></div>
@@ -44,18 +44,17 @@ export default function Hero() {
             Simplify scheduling, reduce staffing chaos, and coordinate caregivers with real-time operational workflows.
           </motion.p>
 
-          {/* CTA BUTTONS */}
+          {/* CTA BUTTON */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 sm:mb-20"
+            className="flex justify-center items-center mb-16 sm:mb-20"
           >
             <button className="btn-primary flex items-center justify-center gap-3 text-lg px-8 py-4">
               Book a Demo
               <ArrowRight size={24} />
             </button>
-            <button className="btn-secondary text-lg px-8 py-4">See How It Works</button>
           </motion.div>
 
           {/* HERO IMAGE */}

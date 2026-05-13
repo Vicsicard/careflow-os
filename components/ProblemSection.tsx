@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function ProblemSection() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-white" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+    <section className="bg-gradient-to-b from-gray-50 to-white" style={{ paddingTop: '120px', paddingBottom: '160px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -14,7 +14,7 @@ const painPoints = [
 
 export default function TrustBar() {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200/50" style={{ paddingTop: '80px', paddingBottom: '80px' }}>
+    <section className="bg-gradient-to-b from-white to-gray-50 border-b border-gray-200/50" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       <div className="container-custom">
         <motion.p
           initial={{ opacity: 0 }}

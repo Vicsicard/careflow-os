@@ -38,7 +38,7 @@ const features = [
 
 export default function FeatureGrid() {
   return (
-    <section id="features" className="bg-white" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+    <section id="features" className="bg-white" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

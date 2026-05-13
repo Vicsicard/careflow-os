@@ -13,7 +13,7 @@ const benefits = [
 
 export default function BenefitsSection() {
   return (
-    <section id="benefits" className="gradient-soft" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+    <section id="benefits" className="gradient-soft" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
