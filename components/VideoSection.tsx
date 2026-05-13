@@ -33,8 +33,14 @@ export default function VideoSection() {
               <video
                 className="w-full h-full object-cover"
                 controls
+                controlsList="nodownload"
+                preload="metadata"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
+                onError={(e) => {
+                  console.error('Video error:', e);
+                  console.error('Video error code:', e.currentTarget?.error?.code);
+                }}
               >
                 <source src="https://pub-d76cf5834a8b4179a93c312211a9c8d9.r2.dev/careflow-video-1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
