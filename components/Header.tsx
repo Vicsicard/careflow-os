@@ -11,14 +11,15 @@ export default function Header() {
   return (
     <header className="fixed top-0 w-full bg-white/98 backdrop-blur-md z-50 border-b border-gray-200/50">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-24 px-2">
+        <div className="flex items-center justify-between h-20 sm:h-24 px-2">
           <Link href="/" className="flex items-center gap-3">
             <Image 
               src="/careflowos-logo.png" 
               alt="CAREFLOW OS Logo" 
-              width={468}
-              height={129}
-              style={{ height: 'auto', width: 'auto', maxHeight: '80px' }}
+              width={320}
+              height={88}
+              style={{ height: 'auto', width: 'auto', maxHeight: '60px' }}
+              className="max-h-12 sm:max-h-16"
               priority
             />
           </Link>
