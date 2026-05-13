@@ -1,10 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
+import { useRef } from 'react';
 
 export default function VideoSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
+
   return (
-    <section className="bg-white" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+    <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '16px', paddingRight: '16px' }}>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,32 +23,45 @@ export default function VideoSection() {
           className="max-w-5xl mx-auto"
         >
           {/* Title above the video */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               See CAREFLOW OS in Action
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
               Watch how staffing coordinators are simplifying their daily operations
             </p>
           </div>
 
-          {/* Video Container */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50 bg-gray-900">
-            <div className="relative aspect-video">
+          {/* Video Container - Mobile Optimized */}
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl border border-gray-200/50 bg-gray-900">
+            <div className="relative aspect-video w-full">
               <video
+                ref={videoRef}
                 className="w-full h-full object-cover"
                 controls
                 controlsList="nodownload"
                 preload="metadata"
+                playsInline
               >
                 <source src="https://pub-d76cf5834a8b4179a93c312211a9c8d9.r2.dev/careflow-video-1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+
+              {/* Large Play Button Overlay */}
+              <button
+                onClick={handlePlayClick}
+                className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 group"
+                aria-label="Play video"
+              >
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-white/90 group-hover:bg-white rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-2xl">
+                  <Play className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-blue-600 ml-1" fill="currentColor" />
+                </div>
+              </button>
             </div>
           </div>
 
           {/* Caption below video */}
-          <p className="text-center text-gray-500 mt-6 text-sm">
+          <p className="text-center text-gray-500 mt-4 sm:mt-6 text-xs sm:text-sm">
             2-minute overview of CAREFLOW OS features
           </p>
         </motion.div>
