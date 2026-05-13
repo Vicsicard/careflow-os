@@ -39,11 +39,8 @@ export default function Header() {
         </div>
 
         {isOpen && (
-          <nav className="md:hidden pb-6 border-t border-gray-100 space-y-4">
-            <a href="#features" className="block py-3 text-gray-600 hover:text-gray-900 font-medium">Features</a>
-            <a href="#how-it-works" className="block py-3 text-gray-600 hover:text-gray-900 font-medium">How It Works</a>
-            <a href="#benefits" className="block py-3 text-gray-600 hover:text-gray-900 font-medium">Benefits</a>
-            <button onClick={openModal} className="btn-primary w-full mt-4">Book a Demo</button>
+          <nav className="md:hidden pb-6 border-t border-gray-100">
+            <button onClick={openModal} className="btn-primary w-full py-3">Book a Demo</button>
           </nav>
         )}
       </div>
