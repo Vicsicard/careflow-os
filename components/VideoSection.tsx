@@ -36,7 +36,7 @@ export default function VideoSection() {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               >
-                <source src="/careflow-video-1.mp4" type="video/mp4" />
+                <source src={process.env.NEXT_PUBLIC_VIDEO_URL || "https://pub-YOUR-BUCKET.r2.dev/careflow-video-1.mp4"} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
