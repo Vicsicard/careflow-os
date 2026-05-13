@@ -60,17 +60,25 @@ export default {
         staffing_challenges: staffing_challenges ? staffing_challenges.trim().slice(0, 500) : ''
       };
       
-      // Store in D1 database
-      const d1Result = await storeDemoRequest(env.DB, sanitizedData);
+      console.log('Demo request received:', {
+        full_name: sanitizedData.full_name,
+        email: sanitizedData.email,
+        caregiver_count: sanitizedData.caregiver_count,
+        staffing_challenges: sanitizedData.staffing_challenges
+      });
       
-      // Send notification email
+      // Store in D1 database first
+      const d1Result = await storeDemoRequest(env.DB, sanitizedData);
+      console.log('D1 insert successful, ID:', d1Result?.meta?.last_row_id);
+      
+      // Send notification email (don't fail if email fails)
       const emailSent = await sendNotificationEmail(env, sanitizedData);
       
       return new Response(
         JSON.stringify({ 
           success: true, 
           message: 'Demo request submitted successfully',
-          id: d1Result?.id,
+          id: d1Result?.meta?.last_row_id,
           email_sent: emailSent
         }),
         { 
@@ -135,14 +143,44 @@ async function storeDemoRequest(db, data) {
 
 async function sendNotificationEmail(env, data) {
   try {
-    const primaryEmail = env.NOTIFICATION_EMAIL || 'vic@getdigdev.com';
-    const secondaryEmail = 'vicsicard@gmail.com';
+    console.log('Preparing SendGrid email...');
     
-    const emailContent = {
-      from: env.SENDGRID_FROM_EMAIL || 'noreply@careflowos.com',
+    // Parse recipients from comma-separated string
+    const recipientString = env.NOTIFICATION_EMAIL || 'vic@getdigdev.com,vicsicard@gmail.com';
+    const recipients = recipientString
+      .split(',')
+      .map(email => email.trim())
+      .filter(email => email.length > 0);
+    
+    const fromEmail = env.SENDGRID_FROM_EMAIL || 'noreply@careflowos.com';
+    
+    console.log('Recipients:', recipients);
+    console.log('From:', fromEmail);
+    console.log('SendGrid API Key present:', !!env.SENDGRID_API_KEY);
+    
+    if (!env.SENDGRID_API_KEY) {
+      console.error('SendGrid API key is missing!');
+      return false;
+    }
+    
+    const emailHtml = generateEmailHtml(data);
+    
+    const requestBody = {
+      personalizations: [{
+        to: recipients.map(email => ({ email })),
+      }],
+      from: {
+        email: fromEmail,
+        name: 'CAREFLOW OS'
+      },
       subject: 'New CAREFLOW OS Demo Request',
-      html: generateEmailHtml(data)
+      content: [{
+        type: 'text/html',
+        value: emailHtml,
+      }],
     };
+    
+    console.log('SendGrid request body:', JSON.stringify(requestBody, null, 2));
     
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
@@ -150,31 +188,25 @@ async function sendNotificationEmail(env, data) {
         'Authorization': `Bearer ${env.SENDGRID_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        personalizations: [{
-          to: [
-            { email: primaryEmail },
-            { email: secondaryEmail }
-          ],
-          subject: emailContent.subject,
-        }],
-        from: { email: emailContent.from },
-        content: [{
-          type: 'text/html',
-          value: emailContent.html,
-        }],
-      }),
+      body: JSON.stringify(requestBody),
     });
     
+    console.log('SendGrid response status:', response.status);
+    
+    const responseText = await response.text();
+    console.log('SendGrid response body:', responseText);
+    
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error('SendGrid error:', errorText);
+      console.error('SendGrid email failed with status:', response.status);
+      console.error('SendGrid error details:', responseText);
       return false;
     }
     
+    console.log('SendGrid email sent successfully!');
     return true;
   } catch (error) {
-    console.error('Email error:', error);
+    console.error('SendGrid email failure:', error);
+    console.error('Error stack:', error.stack);
     // Don't throw error - email failure shouldn't break the demo request
     return false;
   }

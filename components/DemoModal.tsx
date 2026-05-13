@@ -2,13 +2,8 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, CheckCircle, Loader2, Calendar, AlertCircle, Clock, MessageSquare, ClipboardList, Shield } from 'lucide-react';
 import { Dialog, DialogContent, DialogOverlay } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, CheckCircle } from 'lucide-react';
 import { useDemoModal } from '@/contexts/DemoModalContext';
 
 interface FormData {
@@ -19,13 +14,55 @@ interface FormData {
   staffingChallenges: string[];
 }
 
+const challenges = [
+  { 
+    id: 'open-shifts', 
+    label: 'Open shifts',
+    description: 'Coverage still needs to be filled.',
+    icon: Calendar
+  },
+  { 
+    id: 'callouts', 
+    label: 'Last-minute callouts',
+    description: 'Caregivers cancel close to shift time.',
+    icon: AlertCircle
+  },
+  { 
+    id: 'no-shows', 
+    label: 'No-shows',
+    description: 'Confirmed shifts still get missed.',
+    icon: Clock
+  },
+  { 
+    id: 'texting', 
+    label: 'Endless texting',
+    description: 'Too much manual follow-up.',
+    icon: MessageSquare
+  },
+  { 
+    id: 'scheduling', 
+    label: 'Scheduling organization',
+    description: 'Schedules are hard to keep clean.',
+    icon: ClipboardList
+  },
+  { 
+    id: 'coverage', 
+    label: 'Coverage gaps',
+    description: 'Open hours are difficult to recover.',
+    icon: Shield
+  }
+];
+
+const caregiverCounts = [
+  { value: '1-5', label: '1–5' },
+  { value: '6-15', label: '6–15' },
+  { value: '16-30', label: '16–30' },
+  { value: '31-50', label: '31–50' },
+  { value: '50+', label: '50+' }
+];
+
 export default function DemoModal() {
   const { isOpen, closeModal } = useDemoModal();
-  
-  const handleCloseClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    handleClose();
-  };
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -37,23 +74,6 @@ export default function DemoModal() {
     caregiverCount: '',
     staffingChallenges: []
   });
-
-  const challenges = [
-    { id: 'open-shifts', label: 'Open shifts' },
-    { id: 'callouts', label: 'Last-minute callouts' },
-    { id: 'no-shows', label: 'No-shows' },
-    { id: 'texting', label: 'Endless texting' },
-    { id: 'scheduling', label: 'Scheduling organization' },
-    { id: 'coverage', label: 'Coverage gaps' }
-  ];
-
-  const caregiverCounts = [
-    { value: '1-5', label: '1–5' },
-    { value: '6-15', label: '6–15' },
-    { value: '16-30', label: '16–30' },
-    { value: '31-50', label: '31–50' },
-    { value: '50+', label: '50+' }
-  ];
 
   const validateForm = (): boolean => {
     if (!formData.fullName.trim()) {
@@ -144,194 +164,216 @@ export default function DemoModal() {
     <AnimatePresence>
       {isOpen && (
         <Dialog open={isOpen} onOpenChange={handleClose}>
-          <DialogOverlay className="bg-black/40 backdrop-blur-sm" />
-          <DialogContent className="max-w-[600px] max-h-[90vh] overflow-y-auto p-0 border border-gray-100 shadow-2xl bg-white rounded-[32px]">
+          <DialogOverlay className="bg-slate-950/40 backdrop-blur-md" />
+          <DialogContent className="max-w-[640px] w-[calc(100vw-32px)] max-h-[calc(100vh-32px)] overflow-y-auto p-0 border border-slate-200/70 shadow-2xl bg-white rounded-3xl">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="p-8 sm:p-12"
+              exit={{ opacity: 0, scale: 0.96, y: 20 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="p-6 sm:p-10"
             >
               {/* Close Button */}
               <button
-                onClick={handleCloseClick}
-                className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+                onClick={handleClose}
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 p-2 hover:bg-slate-100 rounded-full transition-colors duration-200"
+                aria-label="Close modal"
               >
-                <X className="w-5 h-5 text-gray-400 hover:text-gray-600" />
+                <X className="w-5 h-5 text-slate-400" />
               </button>
 
-              {/* Header */}
-              <div className="text-center mb-12">
-                <h2 className="text-2xl sm:text-2xl font-semibold text-gray-900 mb-3 leading-tight">
-                  Book a Demo
-                </h2>
-                <p className="text-gray-500 text-sm max-w-lg mx-auto leading-relaxed">
-                  Tell us a little about your staffing operation and we&apos;ll reach out shortly.
-                </p>
-              </div>
-
               {isSubmitted ? (
+                /* SUCCESS STATE */
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-center py-16"
+                  className="text-center py-8"
                 >
-                  <div className="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8">
-                    <CheckCircle className="w-12 h-12 text-green-500" />
+                  <div className="w-18 h-18 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-10 h-10 text-emerald-600" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-slate-950 mb-2">
                     Thanks — we&apos;ll reach out shortly.
                   </h3>
-                  <p className="text-gray-500 text-base mb-10">
+                  <p className="text-slate-500 text-base max-w-[420px] mx-auto mb-8">
                     We received your demo request and will contact you soon.
                   </p>
-                  <Button
+                  <button
                     onClick={handleClose}
-                    className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded-xl h-12 text-base font-medium transition-all duration-200"
+                    className="h-12 px-8 bg-slate-950 hover:bg-slate-800 text-white font-semibold rounded-2xl transition-all duration-200"
                   >
-                    Close
-                  </Button>
+                    Done
+                  </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-10">
-                  {/* Full Name */}
-                  <div className="space-y-2.5">
-                    <Label htmlFor="fullName" className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                      Full Name *
-                    </Label>
-                    <Input
-                      id="fullName"
-                      type="text"
-                      value={formData.fullName}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
-                      placeholder="John Smith"
-                      disabled={isSubmitting}
-                      className="h-14 px-5 rounded-xl border border-gray-200 bg-neutral-50 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all duration-200 text-base placeholder:text-gray-400 shadow-sm"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div className="space-y-2.5">
-                    <Label htmlFor="email" className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                      Work Email *
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                      placeholder="john@company.com"
-                      disabled={isSubmitting}
-                      className="h-14 px-5 rounded-xl border border-gray-200 bg-neutral-50 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all duration-200 text-base placeholder:text-gray-400 shadow-sm"
-                    />
-                  </div>
-
-                  {/* Phone */}
-                  <div className="space-y-2.5">
-                    <Label htmlFor="phone" className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                      Phone Number *
-                    </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                      placeholder="(555) 123-4567"
-                      disabled={isSubmitting}
-                      className="h-14 px-5 rounded-xl border border-gray-200 bg-neutral-50 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all duration-200 text-base placeholder:text-gray-400 shadow-sm"
-                    />
-                  </div>
-
-                  {/* Caregiver Count */}
-                  <div className="space-y-2.5">
-                    <Label className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                      Caregiver Count *
-                    </Label>
-                    <Select
-                      value={formData.caregiverCount}
-                      onValueChange={(value: string) => setFormData(prev => ({ ...prev, caregiverCount: value }))}
-                      disabled={isSubmitting}
-                    >
-                      <SelectTrigger className="h-14 px-5 rounded-xl border border-gray-200 bg-neutral-50 focus:bg-white focus:border-blue-300 focus:ring-4 focus:ring-blue-100 transition-all duration-200 text-base shadow-sm">
-                        <SelectValue placeholder="Select caregiver count" />
-                      </SelectTrigger>
-                      <SelectContent className="rounded-xl border border-gray-200 bg-white shadow-lg">
-                        {caregiverCounts.map(count => (
-                          <SelectItem key={count.value} value={count.value} className="rounded-lg">
-                            {count.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Staffing Challenges */}
-                  <div className="space-y-4">
-                    <Label className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                      Biggest Staffing Challenge?
-                    </Label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {challenges.map(challenge => (
-                        <motion.button
-                          key={challenge.id}
-                          type="button"
-                          onClick={() => handleChallengeToggle(challenge.id)}
-                          disabled={isSubmitting}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className={`p-4 rounded-xl border-2 text-left transition-all duration-200 shadow-sm ${
-                            formData.staffingChallenges.includes(challenge.id)
-                              ? 'border-blue-400 bg-blue-50 text-blue-900'
-                              : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md text-gray-700'
-                          }`}
-                        >
-                          <div className="flex items-start">
-                            <div className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                              formData.staffingChallenges.includes(challenge.id)
-                                ? 'border-blue-400 bg-blue-400'
-                                : 'border-gray-300'
-                            }`}>
-                              {formData.staffingChallenges.includes(challenge.id) && (
-                                <div className="w-2 h-2 bg-white rounded-full" />
-                              )}
-                            </div>
-                            <span className="text-sm font-medium leading-snug">{challenge.label}</span>
-                          </div>
-                        </motion.button>
-                      ))}
+                <>
+                  {/* HEADER SECTION */}
+                  <div className="text-center mb-8">
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-100 rounded-full px-3 py-1 text-xs font-semibold mb-4">
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                      CAREFLOW OS
                     </div>
+                    
+                    {/* Title */}
+                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-950 mb-2.5">
+                      Book a Demo
+                    </h2>
+                    
+                    {/* Subtitle */}
+                    <p className="text-base text-slate-500 leading-relaxed max-w-[460px] mx-auto">
+                      Tell us what you&apos;re coordinating today. We&apos;ll reach out with a simple walkthrough.
+                    </p>
                   </div>
 
-                  {/* Error Message */}
-                  {error && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="bg-red-50 border border-red-200 text-red-700 px-5 py-3 rounded-xl text-center text-sm"
-                    >
-                      {error}
-                    </motion.div>
-                  )}
+                  {/* FORM */}
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Full Name */}
+                    <div>
+                      <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 mb-2">
+                        Full Name
+                      </label>
+                      <input
+                        id="fullName"
+                        type="text"
+                        value={formData.fullName}
+                        onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
+                        placeholder="John Smith"
+                        disabled={isSubmitting}
+                        className="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 outline-none transition-all"
+                      />
+                    </div>
 
-                  {/* Submit Button */}
-                  <motion.div className="pt-6">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl h-14 text-base font-semibold transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        'Schedule My Demo'
-                      )}
-                    </Button>
-                  </motion.div>
-                </form>
+                    {/* Work Email */}
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                        Work Email
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                        placeholder="john@company.com"
+                        disabled={isSubmitting}
+                        className="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 outline-none transition-all"
+                      />
+                    </div>
+
+                    {/* Phone Number */}
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                        placeholder="(555) 123-4567"
+                        disabled={isSubmitting}
+                        className="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 outline-none transition-all"
+                      />
+                    </div>
+
+                    {/* Caregiver Count */}
+                    <div>
+                      <label htmlFor="caregiverCount" className="block text-sm font-medium text-slate-700 mb-2">
+                        Caregiver Count
+                      </label>
+                      <select
+                        id="caregiverCount"
+                        value={formData.caregiverCount}
+                        onChange={(e) => setFormData(prev => ({ ...prev, caregiverCount: e.target.value }))}
+                        disabled={isSubmitting}
+                        className="w-full h-12 px-4 rounded-xl border border-slate-200 bg-slate-50/70 text-slate-900 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 outline-none transition-all"
+                      >
+                        <option value="">Select caregiver count</option>
+                        {caregiverCounts.map(count => (
+                          <option key={count.value} value={count.value}>
+                            {count.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Staffing Challenges */}
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-1">
+                        Biggest staffing challenge
+                      </label>
+                      <p className="text-xs text-slate-500 mb-3">
+                        Choose all that apply.
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {challenges.map(challenge => {
+                          const Icon = challenge.icon;
+                          const isSelected = formData.staffingChallenges.includes(challenge.id);
+                          
+                          return (
+                            <button
+                              key={challenge.id}
+                              type="button"
+                              onClick={() => handleChallengeToggle(challenge.id)}
+                              disabled={isSubmitting}
+                              className={`
+                                rounded-2xl border p-4 text-left flex items-start gap-3 transition-all
+                                ${isSelected 
+                                  ? 'border-blue-500 bg-blue-50 shadow-sm ring-2 ring-blue-100' 
+                                  : 'border-slate-200 bg-white hover:bg-blue-50/50 hover:border-blue-200 hover:shadow-sm'
+                                }
+                              `}
+                            >
+                              <div className={`flex-shrink-0 w-5 h-5 mt-0.5 ${isSelected ? 'text-blue-600' : 'text-slate-400'}`}>
+                                <Icon className="w-5 h-5" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className={`text-sm font-medium ${isSelected ? 'text-blue-900' : 'text-slate-900'}`}>
+                                  {challenge.label}
+                                </div>
+                                <div className="text-xs text-slate-500 mt-0.5 leading-snug">
+                                  {challenge.description}
+                                </div>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Error Message */}
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm text-center"
+                      >
+                        {error}
+                      </motion.div>
+                    )}
+
+                    {/* CTA Area */}
+                    <div className="pt-3">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full h-14 rounded-2xl bg-slate-950 text-white font-semibold shadow-lg shadow-slate-950/10 hover:bg-slate-800 transition-all disabled:opacity-60"
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center justify-center gap-2">
+                            <Loader2 className="w-5 h-5 animate-spin" />
+                            Sending...
+                          </span>
+                        ) : (
+                          'Schedule My Demo'
+                        )}
+                      </button>
+                      <p className="text-center text-xs text-slate-400 mt-3">
+                        No spam. Just a quick follow-up about your staffing needs.
+                      </p>
+                    </div>
+                  </form>
+                </>
               )}
             </motion.div>
           </DialogContent>
