@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import TrustBar from '@/components/TrustBar';
 import ProblemSection from '@/components/ProblemSection';
+import VideoSection from '@/components/VideoSection';
 import FeatureGrid from '@/components/FeatureGrid';
 import HowItWorks from '@/components/HowItWorks';
 import BenefitsSection from '@/components/BenefitsSection';
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <ProblemSection />
+      <VideoSection />
       <FeatureGrid />
       <HowItWorks />
       <BenefitsSection />
