@@ -18,10 +18,10 @@ export default function Home() {
       <Header />
       <Hero />
       <SecondaryHeadline />
+      <VideoSection />
       <TrustBar />
       <ProblemSection />
       <FeatureGrid />
-      <VideoSection />
       <HowItWorks />
       <BenefitsSection />
       <DashboardPreview />
