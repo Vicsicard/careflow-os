@@ -14,10 +14,10 @@ export default function ProblemSection() {
           className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50"
         >
           <Image
-            src="/crisis.png"
+            src="/crisis-2.png"
             alt="Staffing Crisis Management"
-            width={1400}
-            height={800}
+            width={1200}
+            height={600}
             className="w-full h-auto"
             priority
           />

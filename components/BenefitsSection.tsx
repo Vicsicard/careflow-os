@@ -24,8 +24,9 @@ export default function BenefitsSection() {
           <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
             Built to Reduce Daily Staffing Stress
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience the relief of organized, efficient caregiver coordination that brings calm to your operations.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto benefits-subtitle"
+            style={{ textAlign: 'center', display: 'block', width: '100%', marginBottom: '3rem' }}>
+            Bring more organization, faster communication, and smoother caregiver coordination into your daily operations.
           </p>
         </motion.div>
 

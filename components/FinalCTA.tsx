@@ -21,11 +21,13 @@ export default function FinalCTA() {
           <h2 className="text-5xl sm:text-6xl font-bold text-white mb-10 leading-tight">
             Bring More Organization to Your Caregiver Staffing
           </h2>
-          <p className="text-2xl text-blue-100 mb-14 max-w-3xl mx-auto leading-relaxed">
-            See how CAREFLOW OS can help simplify scheduling, communication, and caregiver coordination.
+          <p className="text-2xl text-blue-100 mb-14 max-w-3xl mx-auto leading-relaxed final-cta-subtitle"
+            style={{ textAlign: 'center', display: 'block', width: '100%', marginBottom: '5rem' }}>
+            See how CAREFLOW OS can help simplify scheduling, reduce staffing chaos, and improve caregiver coordination.
           </p>
-          <button className="inline-flex items-center gap-3 px-10 py-5 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl text-lg">
-            Schedule a Demo
+          <button id="final-cta-button" className="inline-flex items-center justify-center gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-12 md:py-6 lg:px-20 lg:py-10 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg md:text-xl lg:text-2xl"
+            style={{ textAlign: 'center', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+            Book a Demo
             <ArrowRight size={24} />
           </button>
         </motion.div>

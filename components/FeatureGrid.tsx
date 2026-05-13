@@ -7,32 +7,32 @@ const features = [
   {
     icon: Calendar,
     title: 'Smart Scheduling',
-    description: 'Keep caregiver shifts and availability organized in one place with intuitive calendar views.',
+    description: 'Keep caregiver shifts, availability, and assignments organized in one easy-to-manage system.',
   },
   {
     icon: Bell,
     title: 'Automated Confirmations',
-    description: 'Reduce missed shifts with automatic caregiver check-ins and intelligent reminders.',
+    description: 'Reduce missed shifts with automatic caregiver check-ins and reminders before coverage issues happen.',
   },
   {
     icon: Zap,
     title: 'Open Shift Recovery',
-    description: 'Quickly notify available caregivers when coverage changes happen in real-time.',
+    description: 'Quickly notify available caregivers when schedule changes or cancellations occur.',
   },
   {
     icon: MessageSquare,
     title: 'Real-Time Text Communication',
-    description: 'Reduce endless manual texting and coordinator overload with integrated SMS.',
+    description: 'Reduce manual texting and improve caregiver communication with integrated SMS workflows.',
   },
   {
     icon: TrendingUp,
     title: 'Caregiver Reliability Tracking',
-    description: 'Track attendance, responsiveness, and shift history for better decisions.',
+    description: 'Track responsiveness, attendance, and caregiver history to make more confident staffing decisions.',
   },
   {
     icon: DollarSign,
-    title: 'Payment & Shift Tracking',
-    description: 'Simplify shift management, payment workflows, and caregiver coordination.',
+    title: 'Simplified Shift & Payment Tracking',
+    description: 'Keep shift details, caregiver hours, and payment workflows organized in one place.',
   },
 ];
 
@@ -46,11 +46,13 @@ export default function FeatureGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-28 sm:mb-32"
         >
-          <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+          <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-16 leading-tight feature-title"
+            style={{ marginBottom: '2rem' }}>
             Everything Needed to Coordinate Caregivers More Efficiently
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Powerful features designed specifically for staffing coordinators managing real-world caregiver operations.
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto feature-subtitle"
+            style={{ marginBottom: '3.125rem' }}>
+            Designed specifically for staffing coordinators managing fast-moving caregiver operations.
           </p>
         </motion.div>
 

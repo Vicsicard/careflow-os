@@ -6,14 +6,14 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="gradient-soft relative overflow-hidden" style={{ paddingTop: '80px', paddingBottom: '120px' }}>
+    <section className="gradient-soft relative overflow-hidden" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-teal-200/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container-custom relative z-10">
-        <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="w-full px-4 sm:px-6" style={{ textAlign: 'center' }}>
           {/* EYEBROW TEXT */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 lg:mb-12"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-12 sm:mb-16 lg:mb-20"
           >
             Caregiver Staffing Software
           </motion.h1>
@@ -39,9 +39,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12 sm:mb-16"
+            className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed mx-auto mb-20 sm:mb-24 lg:mb-28 hero-supporting-text"
+            style={{ textAlign: 'center', display: 'block', width: '100%' }}
           >
-            Simplify scheduling, reduce staffing chaos, and coordinate caregivers with real-time operational workflows.
+            Reduce scheduling chaos, fill open shifts faster, and keep caregiver operations organized without endless texting, spreadsheets, or last-minute scrambling.
           </motion.p>
 
           {/* CTA BUTTON */}
@@ -65,14 +66,7 @@ export default function Hero() {
             className="relative max-w-5xl sm:max-w-6xl mx-auto"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200/50">
-              <Image
-                src="/hero-image.png"
-                alt="CAREFLOW OS Dashboard Preview"
-                width={1400}
-                height={800}
-                className="w-full h-auto"
-                priority
-              />
+              <Image src="/hero-image 2.png" alt="CAREFLOW OS Dashboard Preview" width={800} height={450} className="w-full h-auto px-4 sm:px-6 lg:px-0" priority />
             </div>
           </motion.div>
 
@@ -81,7 +75,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mt-16 sm:mt-20 lg:mt-24 mb-6 sm:mb-8"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 lg:mb-12 hero-secondary-headline"
           >
             Built to Reduce No-Shows and Coverage Gaps
           </motion.h2>
@@ -91,9 +85,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.6 }}
-            className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 leading-relaxed mx-auto"
+            style={{ textAlign: 'center', display: 'block', width: '100%' }}
           >
-            CAREFLOW OS helps staffing coordinators manage open shifts, automate confirmations, and keep caregiver operations organized every day.
+            CAREFLOW OS helps staffing coordinators simplify scheduling, automate caregiver confirmations, and recover open shifts before coverage problems become daily emergencies.
           </motion.p>
         </div>
       </div>

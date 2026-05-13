@@ -80,3 +80,651 @@ body {
 .gradient-subtle {
   background: linear-gradient(to bottom, #ffffff, rgba(239, 246, 255, 0.3), #ffffff);
 }
+
+/* Override global margin reset for hero spacing */
+.hero-supporting-text {
+  margin-bottom: 2.5rem !important;
+  text-align: center !important;
+}
+
+@media (min-width: 640px) {
+  .hero-supporting-text {
+    margin-bottom: 3rem !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-supporting-text {
+    margin-bottom: 3.5rem !important;
+    text-align: center !important;
+  }
+}
+
+/* Override for secondary headline spacing */
+.hero-secondary-headline {
+  margin-top: 6rem !important;
+}
+
+@media (min-width: 640px) {
+  .hero-secondary-headline {
+    margin-top: 8rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-secondary-headline {
+    margin-top: 10rem !important;
+  }
+}
+
+/* Override for secondary headline bottom spacing */
+.hero-secondary-headline {
+  margin-bottom: 2rem !important;
+}
+
+@media (min-width: 640px) {
+  .hero-secondary-headline {
+    margin-bottom: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-secondary-headline {
+    margin-bottom: 3rem !important;
+  }
+}
+
+/* Override for TrustBar text centering */
+.trustbar-text {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+motion.p.trustbar-text {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.container-custom .trustbar-text {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 1rem !important;
+}
+
+@media (min-width: 640px) {
+  .container-custom .trustbar-text {
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom .trustbar-text {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Additional override for TrustBar spacing */
+section .trustbar-text {
+  margin-bottom: 1rem !important;
+}
+
+@media (min-width: 640px) {
+  section .trustbar-text {
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  section .trustbar-text {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+motion.p.trustbar-text {
+  margin-bottom: 1.5rem !important;
+}
+
+/* Override for FeatureGrid subtitle spacing and centering */
+.feature-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.feature-grid .feature-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+motion.p.feature-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Override for FeatureGrid title spacing */
+.feature-grid h2 {
+  margin-bottom: 4rem !important;
+}
+
+motion.h2 {
+  margin-bottom: 4rem !important;
+}
+
+.feature-grid motion.h2 {
+  margin-bottom: 4rem !important;
+}
+
+/* Override for FeatureGrid title with class */
+.feature-title {
+  margin-bottom: 2rem !important;
+}
+
+motion.h2.feature-title {
+  margin-bottom: 2rem !important;
+}
+
+.feature-grid .feature-title {
+  margin-bottom: 2rem !important;
+}
+
+section .feature-title {
+  margin-bottom: 2rem !important;
+}
+
+/* Override for FeatureGrid subtitle bottom spacing */
+.feature-subtitle {
+  margin-bottom: 3.125rem !important;
+}
+
+.feature-grid .feature-subtitle {
+  margin-bottom: 3.125rem !important;
+}
+
+motion.p.feature-subtitle {
+  margin-bottom: 3.125rem !important;
+}
+
+section .feature-subtitle {
+  margin-bottom: 3.125rem !important;
+}
+
+/* Override for HowItWorks title spacing */
+.how-it-works h2 {
+  margin-bottom: 2.4rem !important;
+}
+
+motion.h2 {
+  margin-bottom: 2.4rem !important;
+}
+
+.how-it-works motion.h2 {
+  margin-bottom: 2.4rem !important;
+}
+
+section h2 {
+  margin-bottom: 2.4rem !important;
+}
+
+/* Override for HowItWorks subtitle centering */
+.how-it-works-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+.how-it-works .how-it-works-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+motion.p.how-it-works-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+section .how-it-works-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Override for HowItWorks card padding */
+.how-it-works-card {
+  padding: 2rem !important;
+}
+
+/* Override for Benefits subtitle centering */
+.benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+.benefits .benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+motion.p.benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+section .benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Additional overrides for Benefits subtitle */
+.gradient-soft .benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+.container-custom .benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+#benefits .benefits-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 3rem !important;
+}
+
+/* Override for Testimonial section centering */
+.testimonial-quote {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.testimonial-attribution {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.testimonial-section .testimonial-quote {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.testimonial-section .testimonial-attribution {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Additional testimonial centering overrides */
+.bg-gradient-to-b .testimonial-quote {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.bg-gradient-to-b .testimonial-attribution {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.container-custom .testimonial-quote {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.container-custom .testimonial-attribution {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.max-w-3xl .testimonial-quote {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.max-w-3xl .testimonial-attribution {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Direct ID targeting for testimonial */
+#testimonial .testimonial-quote {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+#testimonial .testimonial-attribution {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+/* Force entire testimonial section centering */
+#testimonial {
+  text-align: center !important;
+}
+
+#testimonial .container-custom {
+  text-align: center !important;
+}
+
+#testimonial .max-w-3xl {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#testimonial motion.div {
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Override for Final CTA subtitle centering */
+.final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.gradient-to-r .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.container-custom .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.text-center .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Additional Final CTA centering overrides */
+motion.p.final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.bg-gradient-to-r .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+section .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 5rem !important;
+}
+
+/* Override for Final CTA button centering */
+.btn-primary {
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.gradient-to-r .btn-primary {
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.text-center .btn-primary {
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+button {
+  text-align: center !important;
+  justify-content: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Direct ID targeting for Final CTA button */
+#final-cta-button {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  text-align: center !important;
+}
+
+#final-cta-button * {
+  text-align: center !important;
+}
+
+.gradient-to-r #final-cta-button {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+.text-center #final-cta-button {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+.testimonial-attribution {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+/* Force entire testimonial section centering */
+#testimonial {
+  text-align: center !important;
+}
+
+#testimonial .container-custom {
+  text-align: center !important;
+}
+
+#testimonial .max-w-3xl {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#testimonial motion.div {
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Override for Final CTA subtitle centering */
+.final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.gradient-to-r .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.container-custom .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.text-center .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Additional Final CTA centering overrides */
+motion.p.final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.bg-gradient-to-r .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+section .final-cta-subtitle {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 5rem !important;
+}
+
+/* Override for Final CTA button centering */
+.btn-primary {
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.gradient-to-r .btn-primary {
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.text-center .btn-primary {
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+button {
+  text-align: center !important;
+  justify-content: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Direct ID targeting for Final CTA button */
+#final-cta-button {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+  text-align: center !important;
+}
+
+#final-cta-button * {
+  text-align: center !important;
+}
+
+.gradient-to-r #final-cta-button {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+}
+
+.text-center #final-cta-button {
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+}

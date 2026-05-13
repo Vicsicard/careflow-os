@@ -20,7 +20,8 @@ export default function TrustBar() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="text-center text-gray-700 mb-20 sm:mb-24 text-xl font-medium max-w-3xl mx-auto"
+          className="text-center text-gray-700 mb-32 sm:mb-40 lg:mb-48 text-xl font-medium mx-auto trustbar-text"
+            style={{ textAlign: 'center', display: 'block', width: '100%', marginBottom: '1rem' }}
         >
           Built for staffing coordinators managing real-world caregiver scheduling challenges every day.
         </motion.p>
