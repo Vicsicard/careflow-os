@@ -1,10 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useDemoModal } from '@/contexts/DemoModalContext';
 
 export default function Hero() {
+  const { openModal } = useDemoModal();
   return (
     <section className="gradient-soft relative overflow-hidden" style={{ paddingTop: '120px', paddingBottom: '120px' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -52,7 +54,7 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.3 }}
             className="flex justify-center items-center mb-16 sm:mb-20"
           >
-            <button className="btn-primary flex items-center justify-center gap-3 text-lg px-8 py-4">
+            <button onClick={openModal} className="btn-primary flex items-center justify-center gap-3 text-lg px-8 py-4">
               Book a Demo
               <ArrowRight size={24} />
             </button>

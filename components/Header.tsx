@@ -4,9 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { useDemoModal } from '@/contexts/DemoModalContext';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { openModal } = useDemoModal();
 
   return (
     <header className="fixed top-0 w-full bg-white/98 backdrop-blur-md z-50 border-b border-gray-200/50">
@@ -25,7 +27,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-12">
-            <button className="btn-primary text-sm">Book a Demo</button>
+            <button onClick={openModal} className="btn-primary text-sm">Book a Demo</button>
           </nav>
 
           <button
@@ -41,7 +43,7 @@ export default function Header() {
             <a href="#features" className="block py-3 text-gray-600 hover:text-gray-900 font-medium">Features</a>
             <a href="#how-it-works" className="block py-3 text-gray-600 hover:text-gray-900 font-medium">How It Works</a>
             <a href="#benefits" className="block py-3 text-gray-600 hover:text-gray-900 font-medium">Benefits</a>
-            <button className="btn-primary w-full mt-4">Book a Demo</button>
+            <button onClick={openModal} className="btn-primary w-full mt-4">Book a Demo</button>
           </nav>
         )}
       </div>

@@ -1,0 +1,16 @@
+name = "careflow-os-demo-api"
+main = "workers/demo-request-worker.js"
+compatibility_date = "2023-10-30"
+
+[env.production]
+name = "careflow-os-demo-api"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "careflow-os-demo-requests"
+database_id = "your-database-id-here"
+
+[env.production.vars]
+SENDGRID_API_KEY = "your_sendgrid_api_key_here"
+SENDGRID_FROM_EMAIL = "noreply@careflowos.com"
+NOTIFICATION_EMAIL = "vic@getdigdev.com"

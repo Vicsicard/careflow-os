@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import { DemoModalProvider } from "@/contexts/DemoModalContext";
+import DemoModal from "@/components/DemoModal";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geist.variable} antialiased bg-white text-gray-900`}>
-        {children}
+        <DemoModalProvider>
+          {children}
+          <DemoModal />
+        </DemoModalProvider>
       </body>
     </html>
   );

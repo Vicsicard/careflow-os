@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useDemoModal } from '@/contexts/DemoModalContext';
 
 export default function FinalCTA() {
+  const { openModal } = useDemoModal();
   return (
     <section className="bg-gradient-to-r from-blue-600 via-blue-600 to-teal-600 relative overflow-hidden" style={{ paddingTop: '160px', paddingBottom: '160px' }}>
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -25,7 +27,7 @@ export default function FinalCTA() {
             style={{ textAlign: 'center', display: 'block', width: '100%', marginBottom: '5rem' }}>
             See how CAREFLOW OS can help simplify scheduling, reduce staffing chaos, and improve caregiver coordination.
           </p>
-          <button id="final-cta-button" className="inline-flex items-center justify-center gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-12 md:py-6 lg:px-20 lg:py-10 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg md:text-xl lg:text-2xl"
+          <button id="final-cta-button" onClick={openModal} className="inline-flex items-center justify-center gap-3 px-6 py-3 sm:px-8 sm:py-4 md:px-12 md:py-6 lg:px-20 lg:py-10 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl text-base sm:text-lg md:text-xl lg:text-2xl"
             style={{ textAlign: 'center', justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
             Book a Demo
             <ArrowRight size={24} />
