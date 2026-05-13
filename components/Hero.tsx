@@ -71,27 +71,6 @@ export default function Hero() {
               <Image src="/hero-image 2.png" alt="CAREFLOW OS Dashboard Preview" width={800} height={450} className="w-full h-auto px-4 sm:px-6 lg:px-0" priority />
             </div>
           </motion.div>
-
-          {/* SECONDARY OUTCOME HEADLINE */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-8 sm:mb-10 lg:mb-12 hero-secondary-headline"
-          >
-            Built to Reduce No-Shows and Coverage Gaps
-          </motion.h2>
-
-          {/* SECONDARY SUPPORTING TEXT */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.6 }}
-            className="text-lg sm:text-xl text-gray-600 leading-relaxed mx-auto"
-            style={{ textAlign: 'center', display: 'block', width: '100%' }}
-          >
-            CAREFLOW OS helps staffing coordinators simplify scheduling, automate caregiver confirmations, and recover open shifts before coverage problems become daily emergencies.
-          </motion.p>
         </div>
       </div>
     </section>
