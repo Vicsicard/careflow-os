@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: "CAREFLOW OS - Caregiver Staffing Coordination Platform",
   description: "Stop managing caregiver staffing through chaos. CAREFLOW OS helps staffing coordinators reduce no-shows, organize scheduling, and manage open shifts efficiently.",
   keywords: "caregiver staffing, scheduling, coordination, home care",
+  icons: {
+    icon: "/fb profile 1.png",
+  },
   openGraph: {
     title: "CAREFLOW OS - Caregiver Staffing Coordination",
     description: "Reduce staffing chaos and organize caregiver coordination.",

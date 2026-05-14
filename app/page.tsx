@@ -5,6 +5,7 @@ import VideoSection from '@/components/VideoSection';
 import TrustBar from '@/components/TrustBar';
 import ProblemSection from '@/components/ProblemSection';
 import FeatureGrid from '@/components/FeatureGrid';
+import VideoSection2 from '@/components/VideoSection2';
 import HowItWorks from '@/components/HowItWorks';
 import BenefitsSection from '@/components/BenefitsSection';
 import DashboardPreview from '@/components/DashboardPreview';
@@ -22,6 +23,7 @@ export default function Home() {
       <TrustBar />
       <ProblemSection />
       <FeatureGrid />
+      <VideoSection2 />
       <HowItWorks />
       <BenefitsSection />
       <DashboardPreview />
