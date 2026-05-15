@@ -218,9 +218,9 @@ export default function PrivacyPolicy() {
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mt-4 space-y-2">
                   <p><strong>CAREFLOW OS</strong></p>
-                  <p>Email: privacy@careflowos.com</p>
+                  <p>Email: contact@getdigdev.com</p>
                   <p>Phone: (303) 378-8055</p>
-                  <p>Website: www.careflowos.com</p>
+                  <p>Website: getcareflowos.com</p>
                 </div>
               </section>
 
