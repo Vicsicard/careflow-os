@@ -12,6 +12,7 @@ interface FormData {
   phone: string;
   caregiverCount: string;
   staffingChallenges: string[];
+  smsConsent: boolean;
 }
 
 const challenges = [
@@ -72,7 +73,8 @@ export default function DemoModal() {
     email: '',
     phone: '',
     caregiverCount: '',
-    staffingChallenges: []
+    staffingChallenges: [],
+    smsConsent: false
   });
 
   const validateForm = (): boolean => {
@@ -154,7 +156,8 @@ export default function DemoModal() {
         email: '',
         phone: '',
         caregiverCount: '',
-        staffingChallenges: []
+        staffingChallenges: [],
+        smsConsent: false
       });
       closeModal();
     }
@@ -339,6 +342,22 @@ export default function DemoModal() {
                           );
                         })}
                       </div>
+                    </div>
+
+                    {/* SMS Consent Checkbox */}
+                    <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5">
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.smsConsent}
+                          onChange={(e) => setFormData(prev => ({ ...prev, smsConsent: e.target.checked }))}
+                          disabled={isSubmitting}
+                          className="w-5 h-5 mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                        />
+                        <span className="text-sm text-slate-700 leading-relaxed">
+                          I agree to receive SMS messages from Careflow OS related to staffing coordination and operational notifications. Msg frequency varies. Msg & data rates may apply. Reply STOP to opt out, HELP for help. See our <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-semibold">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 font-semibold">Terms</a>.
+                        </span>
+                      </label>
                     </div>
 
                     {/* Error Message */}

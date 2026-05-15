@@ -18,6 +18,18 @@ export default function Footer() {
               className="max-h-8 sm:max-h-10 md:max-h-12 lg:max-h-16"
             />
           </Link>
+          
+          {/* Compliance Links */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
+            <Link href="/privacy" className="text-gray-400 hover:text-gray-200 transition-colors">
+              Privacy Policy
+            </Link>
+            <div className="hidden sm:block w-px h-4 bg-gray-700"></div>
+            <Link href="/terms" className="text-gray-400 hover:text-gray-200 transition-colors">
+              Terms & Conditions
+            </Link>
+          </div>
+          
           <p className="text-base text-gray-400 leading-relaxed text-center">
             &copy; 2026 CAREFLOW OS. All rights reserved.
           </p>
